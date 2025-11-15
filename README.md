@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## AltaRasa — Coming Soon
 
-## Getting Started
+An editorial, minimal landing page built with Next.js App Router and Tailwind.
 
-First, run the development server:
+### Stack
+- **Next.js 16 (App Router)**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Google Font:** Instrument Serif
 
+### Local development
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# visit http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local` in the project root:
+```
+GAS_WEBHOOK_URL="https://script.google.com/macros/s/AAA.../exec"
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Restart the dev server after adding env vars.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Project structure
+- `src/app/layout.tsx` — Metadata and global chrome
+- `src/app/page.tsx` — Landing page with newsletter CTA
+- `src/components/SignUpForm.tsx` — Accessible modal form
+- `src/app/api/signup/route.ts` — Forwards submissions to Google Apps Script
+- `src/app/globals.css` — Editorial typography and utilities
 
-## Learn More
+### Form & Google Apps Script integration
+The client form posts to a server route which forwards to your GAS Web App. This keeps the webhook secret and avoids CORS.
 
-To learn more about Next.js, take a look at the following resources:
+Apps Script sample:
+```javascript
+function doPost(e) {
+  try {
+    const payload = JSON.parse(e.postData.contents);
+    const ss = SpreadsheetApp.openById('YOUR_SPREADSHEET_ID');
+    const sheet = ss.getSheetByName('Sheet1') || ss.getSheets()[0];
+    sheet.appendRow([new Date(), payload.name || '', payload.email || '', payload.message || '']);
+    return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ error: String(err) })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Notes
+- No `next/image` is used to keep markup simple for a single SVG/icon usage.
+- Typography is tuned for an editorial feel (display, lede, kicker).
+- The modal uses the native `dialog` element for accessible focus management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

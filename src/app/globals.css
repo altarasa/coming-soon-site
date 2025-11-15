@@ -1,26 +1,412 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font face declarations */
+@font-face {
+  font-family: 'Marcellus';
+  src: url('/font/Marcellus-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Libertinus Sans';
+  src: url('/font/LibertinusSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #c5a572; /* Gold */
+  --beige-light: #f5f1eb; /* Light beige for hero */
+  --beige-modal: #ddd6c3; /* Slightly darker beige for modal */
+  --brown-dark: #6d342a; /* Dark brown for text */
+  --brown-darker: #2a1f14; /* Darker brown */
+  --golden: #B27F29; /* Golden brown for buttons */
+  
+  /* Font families */
+  --font-marcellus: 'Marcellus', serif;
+  --font-libertinus-sans: 'Libertinus Sans', sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "kern" 1, "onum" 1, "ss01" 1;
+  font-family: var(--font-inter);
+  min-height: 100vh;
+  margin:0;
+}
+
+/* Editorial type scale */
+.eyebrow {
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.close-button{
+  position:absolute;
+  right: 2vw;
+  top:0.5vh;
+  font-size: 45px;
+}
+.kicker {
+  font-size: 0.875rem;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.display {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Responsive grid utility */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 2rem 0;
+  max-width: 72rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .image-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .image-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.image-grid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.waitlist-button {
+  background-color: var(--accent);
+  color: #2a1f14;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1.125rem;
+  font-family: var(--font-marcellus);
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  border: 1px solid var(--accent);
+}
+
+.waitlist-button:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+/* Dialog base tweaks */
+dialog::backdrop { 
+  background-color: rgba(0,0,0,.45); 
+}
+dialog {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Form controls */
+/* .input-underline {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #d1d5db; 
+  color: var(--foreground);
+  transition: border-color .2s ease, color .2s ease;
+} */
+/* .input-underline::placeholder { color: var(--muted); opacity: .8; }
+.input-underline:focus { outline: none; border-bottom-color: #0a0a0a; } */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--accent);
+  color: #2a1f14;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  transition: all .2s ease;
+}
+/* .btn-primary:hover { background-color: transparent; color: var(--accent); }
+.btn-primary:disabled { opacity: .6; cursor: not-allowed; } */
+
+/* Hero Section */
+/* To add the background image, update the background property like this:
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), 
+               url('/path-to-your-image.jpg') center/cover no-repeat,
+               var(--beige-light);
+*/
+.hero-section {
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-brand {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: white;
+  font-family: var(--font-inter);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.hero-headline {
+  font-size: clamp(2.5rem, 4vw, 4.375rem);
+  line-height: 1.3;
+  color: #F2eee6;
+  font-family: var(--font-marcellus);
+  font-weight: 400;
+  margin-top: 2.3125rem;
+  height: 129px;
+  letter-spacing: -0.01em;
+}
+
+.hero-subhead {
+  color: white;
+  font-family: var(--font-libertinus-sans);
+  letter-spacing: 0.05em;
+  
+}
+
+.waitlist-button-hero {
+  background-color: var(--golden);
+  color: white;
+  padding: 0.875rem 2.5rem;
+  font-size: 0.875rem;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid var(--golden);
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.waitlist-button-hero:hover {
+  background-color: transparent;
+  color: var(--golden);
+  border-color: var(--golden);
+}
+
+.hero-footer {
+  color: white;
+}
+
+/* Form Modal Styles */
+.bg-beige-modal {
+  background-color: var(--beige-modal);
+}
+
+.text-brown-dark {
+  color: var(--brown-dark);
+}
+
+.text-brown-darker {
+  color: var(--brown-darker);
+}
+
+.ar-logo {
+  color: var(--brown-dark);
+  height:45px;
+  width:30px;
+}
+.mobile-logo {
+  display: block;
+}
+
+.desktop-logo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-logo {
+    display: none;
+  }
+  
+  .desktop-logo {
+    display: block;
+  }
+}
+.form-headline {
+  font-size: clamp(1.5rem, 6.11vw, 3.5rem);
+  line-height: 1.4;
+  color: var(--brown-dark);
+  font-family: var(--font-marcellus);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 736px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown-dark);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-inter);
+}
+
+.form-input-underline {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--brown-dark);
+  color: var(--brown-dark);
+  font-size: 1rem;
+  font-family: var(--font-inter);
+  transition: border-color .2s ease;
+}
+
+.form-input-underline:focus {
+  outline: none;
+  border-bottom-color: var(--brown-darker);
+}
+
+.form-input-underline option {
+  background: var(--beige-modal);
+  color: var(--brown-dark);
+}
+
+select.form-input-underline {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%233d2e1f' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 top 50%;
+  padding-right: 1.5rem;
+}
+
+.btn-signup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2.5rem;
+  background-color: var(--golden);
+  color: white;
+  border: 1px solid var(--golden);
+
+  font-size: 0.875rem;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 254px;
+  max-width: 254px;
+}
+
+.btn-signup:hover:not(:disabled) {
+  background-color: transparent;
+  color: var(--golden);
+  border-color: var(--golden);
+}
+
+.btn-signup:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.consent-text {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--brown-dark);
+  font-family: var(--font-inter);
+  max-width: 49rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:45px;
+}
+
+.form-footer {
+  
+  margin-top:3rem;
+}
+
+.form-grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .form-grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    font-size:10px !important;
+
+  }
+}
+
+/* Custom Tailwind font utilities */
+@layer utilities {
+  .font-marcellus {
+    font-family: var(--font-marcellus);
+  }
+  
+  .font-libertinus-sans {
+    font-family: var(--font-libertinus-sans);
+    font-style: italic;
+  }
+  
+  .font-inter {
+    font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  }
 }

@@ -1,65 +1,91 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import SignUpForm from "../components/SignUpForm";
+import { useState } from "react";
 
 export default function Home() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="relative min-h-dvh w-screen overflow-hidden m-0">
+      {/* Mobile image - full coverage */}
+      <img
+        src="/AltaRasa_BG_Image_mobile.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover md:hidden"
+      />
+      
+      {/* Desktop image - constrained to 1024x1440 aspect ratio */}
+      <div className="hidden md:flex absolute inset-0 w-full h-full items-center justify-center">
+        <div 
+          className="w-full h-full"
+          style={{ 
+            aspectRatio: '1024/1440',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            width: 'auto',
+            height: 'auto'
+          }}
+        >
+          <img
+            src="/AltaRasa_BG_Image_Desktop.png"
+            alt=""
+            className="w-[1440px] h-[1024px] object-contain"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+      
+      <div className="absolute inset-0 bg-black/30 -z-10"></div>
+
+      <section className="hero-section min-h-screen flex flex-col items-center text-center px-6 md:px-10 py-12 relative z-10">
+      <div className="hero-logo pt-12 md:pt-20">
+  {/* Desktop / md+: show beige */}
+  <img
+    src="/logos/AR_Wordmark_Ivory White.png"
+    alt="AltaRasa"
+    className="desktop-logo w-[12.75rem] h-[2.4375rem] mt-[6rem] object-contain"
+  />
+  {/* Mobile / <md: show terracotta */}
+  <img
+    src="/logos/AR_Wordmark_Terracotta.png"
+    alt="AltaRasa"
+    className="mobile-logo w-[6.312rem] h-[1.1875rem] mt-[5.375rem] object-contain"
+  />
+</div>
+
+        <div className="hero-content flex-1 flex flex-col items-center justify-center max-w-[43rem] mx-auto">
+          <h2 className="hero-headline font-light tracking-[-2px
+          ] mb-8 md:mb-12 text-[#F2EEE6] text-center">
+            An elevated essence of South Asian design.
+          </h2>
+
+          <p className="hero-subhead mb-10 md:mb-12 mt-[12px] text-[32px] text-white/90">Coming soon</p>
+
+          <button
+            onClick={() => setIsDialogOpen(true)}
+            className="waitlist-button-hero px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white font-medium tracking-wider transition-colors duration-200"
+            aria-label="Join the waitlist"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            JOIN THE WAITLIST
+          </button>
         </div>
-      </main>
-    </div>
+
+          {/* Footer at bottom */}
+          <div className="hero-footer flex flex-col items-center gap-6">
+            {/* Instagram logo */}
+            
+              <Link href="https://instagram.com/altarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram">
+                <img src="/instagram.svg" alt="Instagram" width={24} height={24} className="brightness-0 invert" />
+              </Link>
+            
+
+            {/* Copyright text */}
+            <p className="text-sm text-white">© AltaRasa 2025. All rights reserved.</p>
+          </div>
+        </section>
+
+      <SignUpForm isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+    </main>
   );
 }
