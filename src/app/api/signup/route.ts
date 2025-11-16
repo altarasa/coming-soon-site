@@ -40,7 +40,6 @@ export async function POST(req: Request) {
         email,
         // Legacy format for backward compatibility
         name: `${firstName} ${lastName}`.trim(),
-        message: `Gender: ${gender}`
       }),
     });
 

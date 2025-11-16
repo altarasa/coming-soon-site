@@ -243,7 +243,8 @@ dialog {
 }
 
 .hero-footer {
-  color: white;
+  margin-top:3rem;
+  color:white;
 }
 
 /* Form Modal Styles */

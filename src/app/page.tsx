@@ -3,6 +3,7 @@
 import Link from "next/link";
 import SignUpForm from "../components/SignUpForm";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -10,10 +11,13 @@ export default function Home() {
   return (
     <main className="relative min-h-dvh w-screen overflow-hidden m-0">
       {/* Mobile image - full coverage */}
-      <img
-        src="/AltaRasa_BG_Image_mobile.png"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover md:hidden"
+      <Image
+        src="/AltaRasa_BG_Image_mobile.avif"
+        alt=""  
+        fill
+        preload={true}
+        sizes="(min-width:1280px) 60vw, 100vw"
+        style={{objectFit:"cover"}}
       />
       
       {/* Desktop image - constrained to 1024x1440 aspect ratio */}
@@ -28,10 +32,13 @@ export default function Home() {
             height: 'auto'
           }}
         >
-          <img
-            src="/AltaRasa_BG_Image_Desktop.png"
+          <Image
+            src="/AltaRasa_BG_Image_Desktop.avif"
             alt=""
-            className="w-[1440px] h-[1024px] object-contain"
+            fill
+            preload={true}
+            sizes="(min-width:1280px) 60vw, 100vw"
+            style={{objectFit:"cover"}}
           />
         </div>
       </div>
@@ -41,15 +48,19 @@ export default function Home() {
       <section className="hero-section min-h-screen flex flex-col items-center text-center px-6 md:px-10 py-12 relative z-10">
       <div className="hero-logo pt-12 md:pt-20">
   {/* Desktop / md+: show beige */}
-  <img
+  <Image
     src="/logos/AR_Wordmark_Ivory White.png"
     alt="AltaRasa"
+    width={204}
+    height={39}
     className="desktop-logo w-[12.75rem] h-[2.4375rem] mt-[6rem] object-contain"
   />
   {/* Mobile / <md: show terracotta */}
-  <img
+  <Image
     src="/logos/AR_Wordmark_Terracotta.png"
     alt="AltaRasa"
+    width={100}
+    height={19}
     className="mobile-logo w-[6.312rem] h-[1.1875rem] mt-[5.375rem] object-contain"
   />
 </div>
