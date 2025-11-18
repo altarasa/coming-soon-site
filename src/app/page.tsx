@@ -87,10 +87,10 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <div className="hero-footer flex flex-col items-center gap-4">
+        <div className="hero-footer flex flex-col items-center mb-[61px]">
           {/* Instagram logo */}
           <Link href="https://instagram.com/thealtarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram">
-            <img src="/instagram.svg" alt="Instagram" width={25} height={25} className="brightness-0 invert" />
+            <img src="/instagram.svg" alt="Instagram" width={25} height={25} className="brightness-0 invert pb-[2.375rem]" />
           </Link>
 
           {/* Copyright text */}

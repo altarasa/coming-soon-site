@@ -116,8 +116,8 @@ body {
 }
 
 .waitlist-button:hover {
-  background-color: #926415;
-  border-color: #926415;
+  background-color: #926416;
+  border-color: #926416;
 }
 
 /* Dialog base tweaks */
@@ -488,8 +488,8 @@ select.form-input-underline {
     margin-top:30px;
   }
   .btn-signup:hover:not(:disabled) {
-    background-color: #926415;
-    border-color: #926415;
+    background-color: #926416;
+    border-color: #926416;
   }
   
   .btn-signup:disabled {
