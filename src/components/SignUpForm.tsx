@@ -94,9 +94,9 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
           <div className="ar-logo pt-12 md:pt-20">
             <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[45px]" />
           </div>
-          <h3 id="waitlist-title" className="form-headline text-center">
+          <h2 id="waitlist-title" className="form-headline text-center">
             Join the waitlist for our upcoming launch.
-          </h3>
+          </h2>
 
           <div className="w-full max-w-[886px] flex flex-col items-center gap-6 md:gap-8">
             {/* Removed noValidate and added ref */}

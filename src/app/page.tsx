@@ -70,9 +70,9 @@ export default function Home() {
         <div className="hero-content flex flex-col items-center gap-4 max-w-[43rem] mx-auto flex-1 justify-center">
           {/* Hero text and Coming soon in one div with gap */}
           <div className="flex flex-col items-center">
-            <h2 className="hero-headline font-light tracking-[-0.02em] text-[#F2EEE6] text-center">
+            <h1 className="hero-headline font-light tracking-[-0.02em] text-[#F2EEE6] text-center">
               An elevated essence of South Asian design.
-            </h2>
+            </h1>
             <p className="hero-subhead leading-[-0.02em] text-white/90">Coming soon</p>
           </div>
 
@@ -87,9 +87,9 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <div className="hero-footer flex flex-col items-center gap-6">
+        <div className="hero-footer flex flex-col items-center gap-4">
           {/* Instagram logo */}
-          <Link href="https://instagram.com/altarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram">
+          <Link href="https://instagram.com/thealtarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram">
             <img src="/instagram.svg" alt="Instagram" width={25} height={25} className="brightness-0 invert" />
           </Link>
 
