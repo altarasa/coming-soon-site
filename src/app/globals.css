@@ -107,7 +107,6 @@ body {
 .waitlist-button {
   background-color: var(--accent);
   color: #2a1f14;
-  padding: 0.75rem 2rem;
   border-radius: 4px;
   font-size: 1.125rem;
   font-family: var(--font-marcellus);
@@ -117,8 +116,8 @@ body {
 }
 
 .waitlist-button:hover {
-  background-color: transparent;
-  color: var(--accent);
+  background-color: #926415;
+  border-color: #926415;
 }
 
 /* Dialog base tweaks */
@@ -192,7 +191,9 @@ dialog {
 .hero-content {
   position: relative;
   z-index: 1;
+
 }
+
 
 .hero-brand {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -204,7 +205,7 @@ dialog {
 }
 
 .hero-headline {
-  font-size: clamp(2.5rem, 4vw, 4.375rem);
+  font-size: 56px;
   line-height: 1.3;
   color: #F2eee6;
   font-family: var(--font-marcellus);
@@ -212,19 +213,22 @@ dialog {
   margin-top: 2.3125rem;
   height: 129px;
   letter-spacing: -0.01em;
+  width: 560px;
 }
+
 
 .hero-subhead {
   color: white;
   font-family: var(--font-libertinus-sans);
-  letter-spacing: 0.05em;
+  letter-spacing: -0.02em;
+  font-size:32px;
   
 }
+
 
 .waitlist-button-hero {
   background-color: var(--golden);
   color: white;
-  padding: 0.875rem 2.5rem;
   font-size: 0.875rem;
   font-family: var(--font-inter);
   font-weight: 500;
@@ -234,16 +238,39 @@ dialog {
   border: 1px solid var(--golden);
   cursor: pointer;
   margin-top: 2rem;
+  letter-spacing: 0.25em;
+  width: 254px;
+  height: 45px;
+
+}
+@media (max-width:768px){
+  .hero-headline {
+    width: 297px;
+    font-size:40px;
+  }
+  .hero-subhead{
+    font-size:16px;
+  }
+  .waitlist-button-hero{
+    width: 180px;
+    height: 35px;
+    font-size:0.625rem;
+    padding: 0.4rem;
+  }
+  .waitlist-button:hover {
+    background-color: #926415;
+    border-color: #926415;
+  }
+  
 }
 
 .waitlist-button-hero:hover {
-  background-color: transparent;
-  color: var(--golden);
-  border-color: var(--golden);
+  background-color: #926415;
+  border-color: #926415;
 }
 
 .hero-footer {
-  margin-top:3rem;
+  margin-top:9rem;
   color:white;
 }
 
@@ -288,7 +315,7 @@ dialog {
   color: var(--brown-dark);
   font-family: var(--font-marcellus);
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   max-width: 736px;
 }
 
@@ -343,22 +370,21 @@ select.form-input-underline {
   background-color: var(--golden);
   color: white;
   border: 1px solid var(--golden);
-
+  letter-spacing:0.25em !important;
   font-size: 0.875rem;
   font-family: var(--font-inter);
   font-weight: 500;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: all 0.3s ease;
   cursor: pointer;
   width: 254px;
   max-width: 254px;
+  margin-top:75px;
 }
 
 .btn-signup:hover:not(:disabled) {
-  background-color: transparent;
-  color: var(--golden);
-  border-color: var(--golden);
+  background-color: #926415;
+  border-color: #926415;
 }
 
 .btn-signup:disabled {
@@ -394,6 +420,40 @@ select.form-input-underline {
     font-size:10px !important;
 
   }
+}
+@media(max-width:768px){
+  .form-headline{
+    font-size:24px;
+  }
+  .btn-signup{
+    width: 180px;
+    height: 35px;
+    font-size:0.625rem;
+    padding: 0.4rem;
+    margin-top:30px;
+  }
+  .btn-signup:hover:not(:disabled) {
+    background-color: #926415;
+    border-color: #926415;
+  }
+  
+  .btn-signup:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  input::placeholder{
+    font-size:10px;
+  }
+  .consent-text{
+    font-size:10px;
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--brown-dark);
 }
 
 /* Custom Tailwind font utilities */
