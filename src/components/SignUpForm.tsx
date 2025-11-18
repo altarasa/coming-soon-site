@@ -78,7 +78,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       ref={dialogRef}
       onClose={onClose}
       aria-labelledby="waitlist-title"
-      className="backdrop:bg-black/50 bg-beige-modal p-0 w-full h-full max-w-none max-h-none m-0 rounded-none md:overflow-hidden"
+      className="backdrop:bg-black/50 bg-beige-modal p-0 w-full h-auto min-h-[100svh] md:min-h-screen max-w-none max-h-none m-0 rounded-none"
     >
       <button
         type="button"
@@ -89,7 +89,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
         <img src="/Closeicon.svg" alt="Close" className="w-[17px] h-[17px]" />
       </button>
 
-      <div className="min-h-screen flex flex-col items-center justify-between px-6 py-12 relative">
+      <div className="h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between px-6 py-12 relative">
         <div className="w-[75%] max-w-screen flex flex-col items-center gap-8 md:gap-12 flex-1 justify-center">
           <div className="ar-logo pt-12 md:pt-20">
             <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[45px]" />
@@ -127,14 +127,21 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
                 </label>
 
                 <label className="block">
-                  <input
+                  <select
                     required
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
                     className="form-input-underline"
                     name="gender"
-                    placeholder="GENDER *"
-                  />
+                  >
+                    <option value="" disabled >
+                      GENDER *
+                    </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
                 </label>
 
                 <label className="block">

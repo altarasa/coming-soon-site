@@ -9,7 +9,7 @@ export default function Home() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <main className="relative min-h-dvh w-screen overflow-hidden m-0">
+    <main className="relative h-auto min-h-[100svh] md:min-h-dvh w-screen m-0">
       {/* Mobile image - full coverage */}
       <Image
         src="/AltaRasa_BG_Image_mobile.avif"
@@ -45,7 +45,7 @@ export default function Home() {
       
       <div className="absolute inset-0 bg-black/30 -z-10"></div>
 
-      <section className="hero-section min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative z-10">
+      <section className="hero-section h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative z-10">
         {/* Logo */}
         <div className="hero-logo pt-12 md:pt-20">
           {/* Desktop / md+: show beige */}
