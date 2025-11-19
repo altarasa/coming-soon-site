@@ -90,9 +90,9 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       </button>
 
       <div className="h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center px-4 sm:px-6 py-12 relative">
-        <div className="w-full max-w-[920px] flex flex-col items-center text-center px-4 mt-[80px] md:mt-[131px] ">
+        <div className=" w-full max-w-[920px] flex flex-col items-center text-center px-4 mt-[80px] md:mt-[131px] ">
           <div className="ar-logo pt-10 md:pt-20 flex justify-center">
-            <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[80px]" />
+            <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[45px]" />
           </div>
           <h2 id="waitlist-title" className="form-headline text-center mt-[106px] md:mt-[91px]">
             Join the waitlist for our upcoming launch.
@@ -159,7 +159,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
                 </label>
               </div>
 
-              <div className="flex justify-center mt-[30px] md:mt-[75px]">
+              <div className="flex justify-center">
                 <button type="submit" disabled={status === "loading"} className="btn-signup">
                   {status === "loading" ? "Sending…" : "SIGN UP"}
                 </button>
@@ -185,10 +185,10 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
         <footer className="form-footer text-center w-full max-w-[920px] px-4 mt-[106px] md:mt-[132px]">
           <div className="flex items-center justify-center gap-4 mb-4">
             <Link href="https://instagram.com/thealtarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram" className="text-brown-dark hover:text-brown-darker transition-colors">
-            <img src="/instagram_terracotta.svg" alt="Instagram" width={25} height={25} className="text-[#692C23] pb-[2.375rem]" />
+            <img src="/instagram_terracotta.svg" alt="Instagram" width={25} height={25} className="text-[#692C23] pb-[1.875rem]" />
             </Link>
           </div>
-          <p className="text-[0.875rem] md:text-[0.625rem] text-brown-dark">© AltaRasa 2025. All rights reserved.</p>
+          <p className="text-[0.625rem] md:text-[0.875rem] text-brown-dark">© AltaRasa 2025. All rights reserved.</p>
         </footer>
       </div>
     </dialog>
