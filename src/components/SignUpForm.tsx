@@ -4,6 +4,7 @@
 import type React from "react";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface SignUpFormProps {
   isOpen: boolean;
@@ -31,13 +32,11 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
     e.preventDefault();
     setErrorMsg("");
 
-    // Trigger native HTML5 validation UI. If invalid, stop here.
     const formEl = formRef.current;
     if (formEl && !formEl.reportValidity()) {
       return;
     }
 
-    // Optional: extra custom checks (e.g., stricter email regex)
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!isValidEmail) {
       setErrorMsg("Please enter a valid email.");
@@ -78,27 +77,43 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       ref={dialogRef}
       onClose={onClose}
       aria-labelledby="waitlist-title"
-      className="backdrop:bg-black/50 bg-beige-modal p-0 w-full h-auto min-h-[100svh] md:min-h-screen max-w-none max-h-none m-0 rounded-none"
+      className="backdrop:bg-black/50 bg-[#DDD6C3] p-0 w-full h-auto min-h-[100svh] md:min-h-screen max-w-none max-h-none m-0 rounded-none"
     >
       <button
         type="button"
         onClick={onClose}
-        className="close-button absolute top-6 right-8 text-brown-dark hover:text-brown-darker text-3xl leading-none cursor-pointer bg-transparent border-0 font-light z-10"
+        className="close-button absolute top-6 right-8 text-brown-dark hover:text-brown-darker text-3xl leading-none cursor-pointer bg-transparent border-0 font-light z-100"
         aria-label="Close dialog"
       >
-        <img src="/Closeicon.svg" alt="Close" className="w-[17px] h-[17px]" />
+        <img src="/Closeicon.svg" alt="Close" className="closeicon w-[17px] h-[17px]" />
       </button>
 
-      <div className="h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center px-4 sm:px-6 py-12 relative">
-        <div className=" w-full max-w-[920px] flex flex-col items-center text-center px-4 mt-[80px] md:mt-[131px] ">
-          <div className="ar-logo pt-10 md:pt-20 flex justify-center">
-            <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[45px]" />
+      <main className="relative h-auto min-h-[100svh] md:min-h-dvh w-screen m-0">
+        <section className=" h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative gap-4 ">
+          {/* Logo */}
+          <div className="hero-logo ">
+            <Image
+              src="/logos/AR_Symbol_Terracotta.png"
+              alt="AltaRasa"
+              width={204}
+              height={39}
+              className="desktop-logo w-[67px] h-[45px] mt-[131px] object-contain"
+            />
+            <Image
+              src="/logos/AR_Symbol_Terracotta.png"
+              alt="AltaRasa"
+              width={100}
+              height={19}
+              className="mobile-logo w-[45px] h-[30px] mt-[5.375rem] object-contain"
+            />
           </div>
-          <h2 id="waitlist-title" className="form-headline text-center mt-[106px] md:mt-[91px]">
-            Join the waitlist for our upcoming launch.
-          </h2>
 
-          <div className="w-full max-w-[886px] flex flex-col items-center mt-[56px] md:mt-[91px]">
+          {/* Form content */}
+          <div className="w-full max-w-[886px] flex flex-col items-center justify-between">
+            <h2 id="waitlist-title" className="form-headline text-center ">
+              Join the waitlist for our upcoming launch.
+            </h2>
+
             <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col h-auto">
               <div className="form-grid-responsive">
                 <label className="block">
@@ -133,7 +148,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
                     className="form-input-underline"
                     name="gender"
                   >
-                    <option value="" disabled >
+                    <option value="" disabled>
                       GENDER *
                     </option>
                     <option value="Male">Male</option>
@@ -181,16 +196,30 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
               By submitting your information, you are consenting to be contacted by AltaRasa about our launch and latest updates. You may unsubscribe from these communications at any time.
             </p>
           </div>
-        </div>
-        <footer className="form-footer text-center w-full max-w-[920px] px-4 mt-[106px] md:mt-[132px]">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <Link href="https://instagram.com/thealtarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram" className="text-brown-dark hover:text-brown-darker transition-colors">
-            <img src="/instagram_terracotta.svg" alt="Instagram" width={25} height={25} className="text-[#692C23] pb-[1.875rem]" />
+
+          {/* Footer */}
+          <div className=" flex flex-col items-center mt-[10px] md:mt-[0px]">
+            <Link
+              href="https://instagram.com/thealtarasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AltaRasa on Instagram"
+            >
+              <img
+                src="/instagram_terracotta.svg"
+                alt="Instagram"
+                width={25}
+                height={25}
+                className="pb-[2.375rem]"
+              />
             </Link>
+
+            <p className="copyright text-brown-dark leading-[110%] tracking-[-0.02em] mt-0 mb-[61px]">
+              © AltaRasa 2025. All rights reserved.
+            </p>
           </div>
-          <p className="text-[0.625rem] md:text-[0.875rem] text-brown-dark">© AltaRasa 2025. All rights reserved.</p>
-        </footer>
-      </div>
+        </section>
+      </main>
     </dialog>
   );
 }

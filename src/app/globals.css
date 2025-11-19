@@ -57,9 +57,11 @@ body {
 }
 .close-button{
   position:absolute;
-  right: 2vw;
-  top:0.5vh;
+  right: 4vw;
+  top:10vh;
   font-size: 45px;
+  width: 17px;
+  height: 17px;
 }
 .kicker {
   font-size: 0.875rem;
@@ -106,6 +108,20 @@ body {
   border-radius: 6px;
 }
 
+.waitlist-title{
+  margin-bottom:91px;
+}
+@media (max-width:768px){
+  .waitlist-title{
+  margin-bottom:56px;
+}
+.close-button{
+  right: 2vw;
+  top:0.5vh;
+
+}
+}
+
 .waitlist-button {
   background-color: var(--accent);
   color: #2a1f14;
@@ -118,8 +134,9 @@ body {
 }
 
 .waitlist-button:hover {
-  background-color: #926416;
-  border-color: #926416;
+  background-color: #F2EEE6;
+  border-color: #F2EEE6; 
+  color : var(--brown-dark);  
 }
 
 /* Dialog base tweaks */
@@ -264,7 +281,16 @@ p{
 .text-content{
   gap:26px;
 }
+
+.closeicon{
+  width:17px;
+  height: 17px;
+}
 @media (max-width:768px){
+  .closeicon{
+  width:10px;
+  height: 10px;
+}
   .hero-headline {
     width: 297px;
     font-size:2.5rem;
@@ -282,8 +308,9 @@ p{
 
   }
   .waitlist-button:hover {
-    background-color: #926415;
-    border-color: #926415;
+    background-color: #F2EEE6;
+  border-color: #F2EEE6; 
+  color : var(--brown-dark); 
   }
   .copyright{
     font-size:0.625rem;
@@ -295,8 +322,9 @@ p{
 }
 
 .waitlist-button-hero:hover {
-  background-color: #926415;
-  border-color: #926415;
+  background-color: #F2EEE6;
+  border-color: #F2EEE6; 
+  color : var(--brown-dark); 
 }
 
 .hero-footer {
@@ -344,6 +372,7 @@ p{
   font-weight: 400;
   letter-spacing: -0.02em;
   max-width: 736px;
+  margin-bottom:91px;
 }
 
 
@@ -460,8 +489,9 @@ select.form-input-underline {
 }
 
 .btn-signup:hover:not(:disabled) {
-  background-color: #926415;
-  border-color: #926415;
+  background-color: #F2EEE6;
+    border-color: #F2EEE6; 
+    color : var(--brown-dark); 
 }
 
 .btn-signup:disabled {
@@ -537,6 +567,7 @@ form {
     width: 249px;
     line-height: 120%;
     letter-spacing: -0.02em;
+    margin-bottom:56px;
   }
   .btn-signup{
     width: 180px;
@@ -547,7 +578,8 @@ form {
   }
   .btn-signup:hover:not(:disabled) {
     background-color: #F2EEE6;
-    border-color: #F2EEE6;
+    border-color: #F2EEE6; 
+    color : var(--brown-dark); 
   }
   
   .btn-signup:disabled {
