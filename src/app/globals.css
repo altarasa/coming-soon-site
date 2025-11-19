@@ -114,10 +114,10 @@ body {
 @media (max-width:768px){
   .waitlist-title{
   margin-bottom:56px;
-}
+  }
 .close-button{
-  right: 2vw;
-  top:0.5vh;
+  right: 9vw;
+  top:1.2vh;
 
 }
 }
@@ -307,10 +307,11 @@ p{
     padding: 0.4rem;
 
   }
-  .waitlist-button:hover {
-    background-color: #F2EEE6;
-  border-color: #F2EEE6; 
-  color : var(--brown-dark); 
+  .waitlist-button-hero:hover {
+    
+  }
+  .btn-signup:hover:not(:disabled) {
+    
   }
   .copyright{
     font-size:0.625rem;
@@ -577,9 +578,9 @@ form {
     margin-top:30px;
   }
   .btn-signup:hover:not(:disabled) {
-    background-color: #F2EEE6;
-    border-color: #F2EEE6; 
-    color : var(--brown-dark); 
+    background-color: unset;
+    border-color: unset; 
+    color: unset; 
   }
   
   .btn-signup:disabled {
@@ -618,5 +619,12 @@ input:-webkit-autofill:active{
   
   .font-inter {
     font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background-color: var(--brown-darker);
+    color: var(--beige-light);
   }
 }

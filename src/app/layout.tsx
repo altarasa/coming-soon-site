@@ -10,7 +10,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AltaRasa — An elevated essence of South Asian design",
   description: "A refined editorial exploration of South Asian design. Join the newsletter for launch updates.",
-  metadataBase: new URL("https://altarasa.com"),
+  metadataBase: new URL("https://coming-soon-site-zeta.vercel.app/"),
   openGraph: {
     title: "AltaRasa — An elevated essence of South Asian design",
     description: "A refined editorial exploration of South Asian design. Join the newsletter for launch updates.",
