@@ -89,18 +89,17 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
         <img src="/Closeicon.svg" alt="Close" className="w-[17px] h-[17px]" />
       </button>
 
-      <div className="h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between px-6 py-12 relative">
-        <div className="w-[75%] max-w-screen flex flex-col items-center gap-8 md:gap-12 flex-1 justify-center">
-          <div className="ar-logo pt-12 md:pt-20">
-            <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[45px]" />
+      <div className="h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center px-4 sm:px-6 py-12 relative">
+        <div className="w-full max-w-[920px] flex flex-col items-center text-center px-4 mt-[80px] md:mt-[131px] ">
+          <div className="ar-logo pt-10 md:pt-20 flex justify-center">
+            <img src="/logos/AR_Symbol_Terracotta.png" alt="logo" className="h-[30px] w-[80px]" />
           </div>
-          <h2 id="waitlist-title" className="form-headline text-center">
+          <h2 id="waitlist-title" className="form-headline text-center mt-[106px] md:mt-[91px]">
             Join the waitlist for our upcoming launch.
           </h2>
 
-          <div className="w-full max-w-[886px] flex flex-col items-center gap-6 md:gap-8">
-            {/* Removed noValidate and added ref */}
-            <form ref={formRef} onSubmit={handleSubmit} className="w-full flex flex-col justify-between gap-[20px] space-y-6 md:space-y-8">
+          <div className="w-full max-w-[886px] flex flex-col items-center mt-[56px] md:mt-[91px]">
+            <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col h-auto">
               <div className="form-grid-responsive">
                 <label className="block">
                   <input
@@ -160,7 +159,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
                 </label>
               </div>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-[30px] md:mt-[75px]">
                 <button type="submit" disabled={status === "loading"} className="btn-signup">
                   {status === "loading" ? "Sending…" : "SIGN UP"}
                 </button>
@@ -178,23 +177,18 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
               )}
             </form>
 
-            <p className="consent-text text-center">
+            <p className="consent-text text-center mt-[45px]">
               By submitting your information, you are consenting to be contacted by AltaRasa about our launch and latest updates. You may unsubscribe from these communications at any time.
             </p>
           </div>
         </div>
-
-        <footer className="form-footer text-center">
+        <footer className="form-footer text-center w-full max-w-[920px] px-4 mt-[106px] md:mt-[132px]">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <Link href="https://instagram.com/altarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram" className="text-brown-dark hover:text-brown-darker transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
+            <Link href="https://instagram.com/thealtarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram" className="text-brown-dark hover:text-brown-darker transition-colors">
+            <img src="/instagram_terracotta.svg" alt="Instagram" width={25} height={25} className="text-[#692C23] pb-[2.375rem]" />
             </Link>
           </div>
-          <p className="text-[10px] md:text-sm text-brown-dark">© AltaRasa 2025. All rights reserved.</p>
+          <p className="text-[0.875rem] md:text-[0.625rem] text-brown-dark">© AltaRasa 2025. All rights reserved.</p>
         </footer>
       </div>
     </dialog>

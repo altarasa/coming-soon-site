@@ -45,6 +45,8 @@ body {
   font-family: var(--font-inter);
   min-height: 100vh;
   margin:0;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 
 /* Editorial type scale */
@@ -213,16 +215,20 @@ dialog {
   text-transform: none;
 }
 
+h1,h2{
+  margin:0;
+  text-box-trim: trim-both;
+text-box-edge: cap alphabetic;
+}
+
 .hero-headline {
   font-size: 4.375rem;
-  line-height: 1.3;
   color: #F2eee6;
   font-family: var(--font-marcellus);
   font-weight: 400;
-  margin-top: 2.3125rem;
   height: 129px;
-  letter-spacing: -0.01em;
   width: 708px;
+  margin-top:20px;
 }
 
 
@@ -231,9 +237,10 @@ dialog {
   font-family: var(--font-libertinus-sans);
   letter-spacing: -0.02em;
   font-size:32px;
-  
 }
-
+p{
+  margin:0;
+}
 
 .waitlist-button-hero {
   background-color: var(--golden);
@@ -241,34 +248,48 @@ dialog {
   font-size: 0.875rem;
   font-family: var(--font-inter);
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.25em;
+  line-height: 110%;
   text-transform: uppercase;
   transition: all 0.3s ease;
   border: 1px solid var(--golden);
   cursor: pointer;
-  margin-top: 2rem;
-  letter-spacing: 0.25em;
   width: 254px;
   height: 45px;
 
+}
+.copyright{
+  font-size:0.875rem;
+}
+.text-content{
+  gap:26px;
 }
 @media (max-width:768px){
   .hero-headline {
     width: 297px;
     font-size:2.5rem;
+    height: 110px;
   }
   .hero-subhead{
     font-size:16px;
+    margin-top:0px;
   }
   .waitlist-button-hero{
     width: 180px;
     height: 35px;
     font-size:0.625rem;
     padding: 0.4rem;
+
   }
   .waitlist-button:hover {
     background-color: #926415;
     border-color: #926415;
+  }
+  .copyright{
+    font-size:0.625rem;
+  }
+  .text-content{
+    gap:39px;
   }
   
 }
@@ -279,7 +300,6 @@ dialog {
 }
 
 .hero-footer {
-  margin-top:9rem;
   color:white;
 }
 
@@ -319,8 +339,8 @@ dialog {
   }
 }
 .form-headline {
-  font-size: clamp(1.5rem, 6.11vw, 3.5rem);
-  line-height: 1.4;
+  font-size: 3.5rem;
+  line-height: 100%;
   color: var(--brown-dark);
   font-family: var(--font-marcellus);
   font-weight: 400;
@@ -416,6 +436,9 @@ select.form-input-underline {
   background-position: right 0 top 50%;
   padding-right: 1.5rem;
 }
+.container-logo{
+  gap:91px;
+}
 
 .btn-signup {
   display: inline-flex;
@@ -434,7 +457,7 @@ select.form-input-underline {
   cursor: pointer;
   width: 254px;
   max-width: 254px;
-  margin-top:51px;
+  margin:0;
 }
 
 .btn-signup:hover:not(:disabled) {
@@ -449,24 +472,52 @@ select.form-input-underline {
 
 .consent-text {
   font-size: 0.75rem;
-  line-height: 1.5;
+  line-height: 140%;
   color: var(--brown-dark);
   font-family: var(--font-inter);
-  max-width: 49rem;
+  max-width: 783px;
   margin-left: auto;
   margin-right: auto;
   margin-top:45px;
+  
+  text-box-trim: trim-both;
+text-box-edge: cap alphabetic;
 }
 
-.form-footer {
-  
-  margin-top:3rem;
+
+/* Adjusted form and consent text dimensions for mobile and non-mobile layouts */
+
+/* Form dimensions */
+form {
+  width: 297px;
+  height: 164px;
+}
+
+@media (min-width: 768px) {
+  form {
+    width: 886px;
+    height: 83px;
+  }
+}
+
+/* Consent text dimensions */
+.consent-text {
+  width: 299px;
+  height: 41px;
+}
+
+@media (min-width: 768px) {
+  .consent-text {
+    width: 783px;
+    height: 41px;
+  }
 }
 
 .form-grid-responsive {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  width: 297px;
   font-size:0.625rem !important;
 }
 
@@ -474,6 +525,8 @@ select.form-input-underline {
   .form-grid-responsive {
     grid-template-columns: repeat(2, 1fr);
     font-size:0.875rem !important;
+    width: 886px;
+    height: 164px;
   }
 }
 @media(max-width:768px){
@@ -502,6 +555,7 @@ select.form-input-underline {
   }
   .consent-text{
     font-size:0.625rem;
+    margin-top:30px;
   }
 }
 input:-webkit-autofill,

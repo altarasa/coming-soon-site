@@ -45,16 +45,16 @@ export default function Home() {
       
       <div className="absolute inset-0 bg-black/30 -z-10"></div>
 
-      <section className="hero-section h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative z-10">
+      <section className="hero-section h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative z-10 gap-4 ">
         {/* Logo */}
-        <div className="hero-logo pt-12 md:pt-20">
+        <div className="hero-logo ">
           {/* Desktop / md+: show beige */}
           <Image
             src="/logos/AR_Wordmark_Ivory White.png"
             alt="AltaRasa"
             width={204}
             height={39}
-            className="desktop-logo w-[12.75rem] h-[2.4375rem] mt-[6rem] object-contain"
+            className="desktop-logo w-[12.75rem] h-[2.4375rem] mt-[131px] object-contain"
           />
           {/* Mobile / <md: show terracotta */}
           <Image
@@ -67,10 +67,10 @@ export default function Home() {
         </div>
 
         {/* Hero content: text + coming soon, then button */}
-        <div className="hero-content flex flex-col items-center gap-4 max-w-[43rem] mx-auto flex-1 justify-center">
+        <div className="hero-content flex flex-col items-center gap-[39px] md:gap-[45px] md:gap-4 max-w-[43rem] mx-auto flex-1 justify-center">
           {/* Hero text and Coming soon in one div with gap */}
-          <div className="flex flex-col items-center">
-            <h1 className="hero-headline font-light tracking-[-0.02em] text-[#F2EEE6] text-center">
+          <div className="text-content flex flex-col items-center md:pt-[20px]">
+            <h1 className="hero-headline font-light leading-[100%] tracking-[-0.02em] text-[#F2EEE6] text-center">
               An elevated essence of South Asian design.
             </h1>
             <p className="hero-subhead leading-[-0.02em] text-white/90">Coming soon</p>
@@ -79,7 +79,7 @@ export default function Home() {
           {/* Button */}
           <button
             onClick={() => setIsDialogOpen(true)}
-            className="waitlist-button-hero text-white font-medium tracking-wider"
+            className="waitlist-button-hero text-white font-medium"
             aria-label="Join the waitlist"
           >
             JOIN THE WAITLIST
@@ -87,14 +87,14 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <div className="hero-footer flex flex-col items-center mb-[61px]">
+        <div className="hero-footer flex flex-col items-center mt-[10px] md:mt-[0px]">
           {/* Instagram logo */}
           <Link href="https://instagram.com/thealtarasa" target="_blank" rel="noopener noreferrer" aria-label="AltaRasa on Instagram">
             <img src="/instagram.svg" alt="Instagram" width={25} height={25} className="brightness-0 invert pb-[2.375rem]" />
           </Link>
 
           {/* Copyright text */}
-          <p className="text-[10px] md:text-sm text-white">© AltaRasa 2025. All rights reserved.</p>
+          <p className="copyright leading-[110%] tracking-[-0.02em] mt-0 text-white mb-[61px]">© AltaRasa 2025. All rights reserved.</p>
         </div>
       </section>
 
