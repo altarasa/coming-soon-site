@@ -578,9 +578,9 @@ form {
     margin-top:30px;
   }
   .btn-signup:hover:not(:disabled) {
-    background-color: unset;
-    border-color: unset; 
-    color: unset; 
+    background-color: var(--golden);
+    border-color: var(--golden);
+    color: white;
   }
   
   .btn-signup:disabled {
@@ -626,5 +626,17 @@ input:-webkit-autofill:active{
   .btn:hover {
     background-color: var(--brown-darker);
     color: var(--beige-light);
+  }
+}
+@media (max-width: 768px) {
+  button:hover,
+  .btn:hover,
+  .btn-primary:hover,
+  .btn-signup:hover:not(:disabled),
+  .waitlist-button:hover,
+  .waitlist-button-hero:hover {
+    background-color: var(--golden);
+    border-color: var(--golden);
+    color: white;
   }
 }
