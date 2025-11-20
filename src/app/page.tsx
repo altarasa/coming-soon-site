@@ -9,7 +9,7 @@ export default function Home() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <main className="relative h-auto min-h-[100svh] md:min-h-dvh w-screen m-0">
+    <main className="relative h-auto min-h-[100dvh] md:min-h-dvh w-screen m-0">
       {/* Mobile image - full coverage */}
       <Image
         src="/AltaRasa_BG_Image_mobile.avif"

@@ -89,7 +89,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       </button>
 
       <main className="relative h-auto min-h-[100svh] md:min-h-dvh w-screen m-0">
-        <section className=" h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative gap-4 ">
+        <section className="main-container h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center text-center px-6 md:px-10 py-12 relative gap-4">
           {/* Logo */}
           <div className="hero-logo ">
             <Image
@@ -175,6 +175,12 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
               </div>
 
               <div className="flex justify-center">
+                <p className="consent-text text-center mt-[45px]">
+                  By submitting your information, you are consenting to be contacted by AltaRasa about our launch and latest updates. You may unsubscribe from these communications at any time.
+                </p>
+              </div>
+
+              <div className="flex justify-center mt-[30px]">
                 <button type="submit" disabled={status === "loading"} className="btn-signup">
                   {status === "loading" ? "Sending…" : "SIGN UP"}
                 </button>
@@ -191,33 +197,30 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
                 </p>
               )}
             </form>
+            <div className="mt-[45px]"></div>
+            {/* Footer */}
+            <div className=" flex flex-col items-center mt-[10px] md:mt-[0px]">
+              <Link
+                href="https://instagram.com/thealtarasa"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="AltaRasa on Instagram"
+              >
+                <img
+                  src="/instagram_terracotta.svg"
+                  alt="Instagram"
+                  width={25}
+                  height={25}
+                  className="pb-[2.375rem]"
+                />
+              </Link>
 
-            <p className="consent-text text-center mt-[45px]">
-              By submitting your information, you are consenting to be contacted by AltaRasa about our launch and latest updates. You may unsubscribe from these communications at any time.
-            </p>
+              <p className="copyright text-brown-dark leading-[110%] tracking-[-0.02em] mt-0 mb-[61px]">
+                © AltaRasa 2025. All rights reserved.
+              </p>
+            </div>
           </div>
-
-          {/* Footer */}
-          <div className=" flex flex-col items-center mt-[10px] md:mt-[0px]">
-            <Link
-              href="https://instagram.com/thealtarasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="AltaRasa on Instagram"
-            >
-              <img
-                src="/instagram_terracotta.svg"
-                alt="Instagram"
-                width={25}
-                height={25}
-                className="pb-[2.375rem]"
-              />
-            </Link>
-
-            <p className="copyright text-brown-dark leading-[110%] tracking-[-0.02em] mt-0 mb-[61px]">
-              © AltaRasa 2025. All rights reserved.
-            </p>
-          </div>
+          
         </section>
       </main>
     </dialog>
