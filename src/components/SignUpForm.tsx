@@ -82,7 +82,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       <button
         type="button"
         onClick={onClose}
-        className="close-button absolute top-6 right-8 text-brown-dark hover:text-brown-darker text-3xl leading-none cursor-pointer bg-transparent border-0 font-light z-100"
+        className="close-button absolute bg-transparent border-0 font-light z-100"
         aria-label="Close dialog"
       >
         <img src="/Closeicon.svg" alt="Close" className="closeicon w-[17px] h-[17px]" />
@@ -199,7 +199,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
             </form>
             <div className="mt-[45px]"></div>
             {/* Footer */}
-            <div className=" flex flex-col items-center mt-[10px] md:mt-[0px]">
+            <div className="footer flex flex-col items-center ">
               <Link
                 href="https://instagram.com/thealtarasa"
                 target="_blank"

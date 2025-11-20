@@ -55,13 +55,20 @@ body {
   text-transform: uppercase;
   color: var(--muted);
 }
-.close-button{
-  position:absolute;
-  right: 4vw;
-  top:10vh;
-  font-size: 45px;
-  width: 17px;
-  height: 17px;
+.close-button {
+  position: absolute;
+  top: 10vh; /* Keep the current position */
+  right: 4vw; /* Keep the current position */
+  width: 45px; /* Explicitly set the button's width */
+  height: 45px; /* Explicitly set the button's height */
+  background: transparent;
+  border: 0;
+  padding: 0; /* Remove any default padding */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  cursor: pointer;
+  z-index: 100;
 }
 .kicker {
   font-size: 0.875rem;
@@ -287,6 +294,7 @@ p{
 .closeicon{
   width:17px;
   height: 17px;
+  display: block;
 }
 @media (max-width:768px){
   .closeicon{
@@ -544,17 +552,19 @@ form {
     height: 41px;
   }
 }
-
+.footer{
+  margin-top:105px;
+}
 .form-grid-responsive {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
   width: 297px;
-  max-width:700px;
   font-size:0.625rem !important;
   margin: 0 auto;
   padding:0;
 }
+
 @supports (-webkit-touch-callout: none) {
   /* iOS Safari (and most iOS WebKit browsers) */
   input,
@@ -572,11 +582,23 @@ form {
     gap:20px;
   }
 }
-
+@media(max-width:1000px){
+  .form-grid-responsive{
+    max-width: 700px;
+  }
+}
 .main-container{
   gap:91px;
 }
+.close-button:focus {
+  outline: 2px solid #692C23; /* Updated focus outline color */
+  outline-offset: 2px; /* Adds space between the button and the outline */
+  border-radius: 0; /* Keeps the outline square */
+}
 @media(max-width:768px){
+  footer{
+  margin-top: 12px;
+}
   .main-container{
   gap:106px;
 }
@@ -645,7 +667,6 @@ input:-webkit-autofill:active{
   }
 }
 @media (max-width: 768px) {
-  button:hover,
   .btn:hover,
   .btn-primary:hover,
   .btn-signup:hover:not(:disabled),
