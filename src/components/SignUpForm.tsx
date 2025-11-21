@@ -1,4 +1,3 @@
-// SignUpForm.tsx
 "use client";
 
 import type React from "react";
@@ -25,11 +24,17 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (isOpen) dialog.showModal();
-    else dialog.close();
+    else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      dialog.close();
+    }
   }, [isOpen]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (typeof document !== "undefined" && document.activeElement) {
+      (document.activeElement as HTMLElement)?.blur(); // Force Safari to zoom out
+    }
     setErrorMsg("");
 
     const formEl = formRef.current;
@@ -61,7 +66,6 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       setLastName("");
       setGender("");
       setEmail("");
-
     } catch (err: any) {
       setStatus("error");
       setErrorMsg(err?.message || "Failed to send.");
@@ -73,19 +77,19 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       ref={dialogRef}
       onClose={onClose}
       aria-labelledby="waitlist-title"
-      className="backdrop:bg-black/50 bg-[#DDD6C3] p-0 w-full h-auto min-h-[100svh] md:min-h-screen max-w-none max-h-none m-0 rounded-none"
+      className="backdrop:bg-black/50 bg-[#DDD6C3] p-0 w-full h-auto min-h-[100dvh] md:min-h-screen max-w-none max-h-none m-0 rounded-none"
     >
       <button
         type="button"
         onClick={onClose}
-        className="close-button absolute bg-transparent border-0 font-light z-100"
+        className="close-button absolute top-6 right-8 text-brown-dark hover:text-brown-darker text-3xl leading-none cursor-pointer bg-transparent border-0 font-light z-100"
         aria-label="Close dialog"
       >
         <img src="/Closeicon.svg" alt="Close" className="closeicon w-[17px] h-[17px]" />
       </button>
 
       <main className="relative h-auto min-h-[100svh] md:min-h-dvh w-screen m-0">
-        <section className="main-container h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center text-center px-6 md:px-10 py-12 relative gap-4">
+        <section className=" h-auto min-h-[100svh] md:min-h-screen flex flex-col items-center justify-between text-center px-6 md:px-10 py-12 relative gap-4 ">
           {/* Logo */}
           <div className="hero-logo ">
             <Image
@@ -105,7 +109,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
           </div>
 
           {/* Form content */}
-          <div className="w-full max-w-[886px] flex flex-col items-center justify-between">
+          <div className="w-full max-w-[886px] flex flex-col items-center justify-between mt-[2rem]">
             <h2 id="waitlist-title" className="form-headline text-center ">
               Join the waitlist for our upcoming launch.
             </h2>
@@ -169,13 +173,9 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
                   />
                 </label>
               </div>
-
-              <div className="flex justify-center">
-                <p className="consent-text text-center mt-[45px]">
-                  By submitting your information, you are consenting to be contacted by AltaRasa about our launch and latest updates. You may unsubscribe from these communications at any time.
-                </p>
-              </div>
-
+              <p className="consent-text text-center mt-[30px]">
+                By submitting your information, you are consenting to be contacted by AltaRasa about our launch and latest updates. You may unsubscribe from these communications at any time.
+              </p>
               <div className="flex justify-center mt-[30px]">
                 <button type="submit" disabled={status === "loading"} className="btn-signup">
                   {status === "loading" ? "Sending…" : "SIGN UP"}
@@ -183,40 +183,39 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
               </div>
 
               {status === "success" && (
-                <p className="text-brown-dark text-sm text-center mt-[1rem]">
+                <p className="consent-text text-center mt-[1rem]">
                   Thanks — we received your submission.
                 </p>
               )}
               {status === "error" && (
-                <p id="email-error" className="text-red text-sm text-center mt-4">
+                <p id="email-error" className="text-red-700 text-sm text-center mt-4">
                   {errorMsg || "Failed to send."}
                 </p>
               )}
             </form>
-            <div className="mt-[45px]"></div>
-            {/* Footer */}
-            <div className="footer flex flex-col items-center ">
-              <Link
-                href="https://instagram.com/thealtarasa"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="AltaRasa on Instagram"
-              >
-                <img
-                  src="/instagram_terracotta.svg"
-                  alt="Instagram"
-                  width={25}
-                  height={25}
-                  className="pb-[2.375rem]"
-                />
-              </Link>
-
-              <p className="copyright text-brown-dark leading-[110%] tracking-[-0.02em] mt-0 mb-[61px]">
-                © AltaRasa 2025. All rights reserved.
-              </p>
-            </div>
           </div>
-          
+
+          {/* Footer */}
+          <div className=" flex flex-col items-center mt-[10px] md:mt-[0px]">
+            <Link
+              href="https://instagram.com/thealtarasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AltaRasa on Instagram"
+            >
+              <img
+                src="/instagram_terracotta.svg"
+                alt="Instagram"
+                width={25}
+                height={25}
+                className="pb-[2.375rem]"
+              />
+            </Link>
+
+            <p className="copyright text-brown-dark leading-[110%] tracking-[-0.02em] mt-0 mb-[61px]">
+              © AltaRasa 2025. All rights reserved.
+            </p>
+          </div>
         </section>
       </main>
     </dialog>

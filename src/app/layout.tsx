@@ -26,13 +26,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  
-  themeColor: "#ffffff",
 };
 
 export const viewport : Viewport = {
       width: "device-width",
       initialScale: 1,
+      viewportFit:"cover",
+      themeColor:"white",
       maximumScale:1
 }
 export default function RootLayout({

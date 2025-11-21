@@ -28,7 +28,7 @@
   --brown-dark: #6d342a; /* Dark brown for text */
   --brown-darker: #2a1f14; /* Darker brown */
   --golden: #B27F29; /* Golden brown for buttons */
-  
+
   /* Font families */
   --font-marcellus: 'Marcellus', serif;
   --font-libertinus-sans: 'Libertinus Sans', sans-serif;
@@ -61,7 +61,7 @@ body {
   right: 4vw; /* Keep the current position */
   width: 45px; /* Explicitly set the button's width */
   height: 45px; /* Explicitly set the button's height */
-  background: transparent;
+  background:#DDD6C3;
   border: 0;
   padding: 0; /* Remove any default padding */
   display: flex; /* Use flexbox for alignment */
@@ -383,7 +383,7 @@ p{
   font-weight: 400;
   letter-spacing: -0.02em;
   max-width: 736px;
-  margin-bottom:91px;
+  margin-bottom:max(91px,8vh);
 }
 
 
@@ -420,7 +420,6 @@ p{
   font-size: 0.875rem;
   letter-spacing: 0.25em;
 }
-
 input[type="text"],
 input[type="search"],
 input[type="email"],
@@ -552,8 +551,20 @@ form {
     height: 41px;
   }
 }
-.footer{
-  margin-top:105px;
+.footer {
+  margin-top: clamp(106px, 10vh, 132px); /* Dynamically adjusts between 106px and 132px */
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 106px; /* Fixed margin for mobile */
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    margin-top: 106px; /* Fixed margin for larger screens */
+  }
 }
 .form-grid-responsive {
   display: grid;
