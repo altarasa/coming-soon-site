@@ -196,7 +196,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
           </div>
 
           {/* Footer */}
-          <div className=" flex flex-col items-center mt-[10px] md:mt-[0px]">
+          <div className="signup-footer flex flex-col items-center">
             <Link
               href="https://instagram.com/thealtarasa"
               target="_blank"

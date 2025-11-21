@@ -416,16 +416,10 @@ p{
 
 .form-input-underline::placeholder {
   color:var(--brown-dark);
-  opacity: 0.6;
   font-size: 0.875rem;
   letter-spacing: 0.25em;
 }
-input[type="text"],
-input[type="search"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="url"],
+input,
 textarea,
 select {
   -webkit-appearance: none; /* Safari/WebKit */
@@ -458,12 +452,10 @@ select:focus {
 
 select.form-input-underline:invalid {
   color: var(--brown-dark);
-  opacity: 0.6;
 }
 
 select.form-input-underline option[value=""] {
   color: var(--brown-dark);
-  opacity: 0.6;
 }
 
 select.form-input-underline {
@@ -559,7 +551,14 @@ form {
   .footer {
     margin-top: 106px; /* Fixed margin for mobile */
   }
+  .signup-footer{
+    margin-top:50px;
+  }
 }
+
+.signup-footer{
+    margin-top:50px;
+  }
 
 @media (min-width: 1024px) {
   .footer {
@@ -599,19 +598,21 @@ form {
   }
 }
 .main-container{
-  gap:91px;
 }
 .close-button:focus {
-  outline: 2px solid #692C23; /* Updated focus outline color */
+  outline: 1 solid #692C23; /* Updated focus outline color */
   outline-offset: 2px; /* Adds space between the button and the outline */
   border-radius: 0; /* Keeps the outline square */
+}
+.main-container{
+    min-height: 860px;
 }
 @media(max-width:768px){
   .footer{
   margin-top: 12px;
 }
   .main-container{
-  gap:106px;
+    min-height: 768px;
 }
   .form-headline{
     font-size:1.5rem;
