@@ -62,10 +62,6 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
       setGender("");
       setEmail("");
 
-      setTimeout(() => {
-        onClose();
-        setStatus("idle");
-      }, 1500);
     } catch (err: any) {
       setStatus("error");
       setErrorMsg(err?.message || "Failed to send.");
@@ -187,12 +183,12 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
               </div>
 
               {status === "success" && (
-                <p className="text-green-700 text-sm text-center mt-4">
+                <p className="text-brown-dark text-sm text-center mt-[1rem]">
                   Thanks — we received your submission.
                 </p>
               )}
               {status === "error" && (
-                <p id="email-error" className="text-red-700 text-sm text-center mt-4">
+                <p id="email-error" className="text-red text-sm text-center mt-4">
                   {errorMsg || "Failed to send."}
                 </p>
               )}

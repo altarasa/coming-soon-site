@@ -596,7 +596,7 @@ form {
   border-radius: 0; /* Keeps the outline square */
 }
 @media(max-width:768px){
-  footer{
+  .footer{
   margin-top: 12px;
 }
   .main-container{
