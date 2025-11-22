@@ -24,9 +24,20 @@ export const metadata: Metadata = {
     description: "A refined editorial exploration of South Asian design. Join the newsletter for launch updates.",
   },
   icons: {
-    icon: "/favicon.ico",
-  },
-};
+    icon: [
+      {
+        url: '/icon.ico',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon2.ico',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+}
+}
+    
+
 
 export const viewport : Viewport = {
       width: "device-width",

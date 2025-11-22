@@ -213,7 +213,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
             </Link>
 
             <p className="copyright text-brown-dark leading-[110%] tracking-[-0.02em] mt-0 mb-[61px]">
-              © AltaRasa 2025. All rights reserved.
+              © AltaRasa {new Date().getFullYear()}. All rights reserved.
             </p>
           </div>
         </section>
