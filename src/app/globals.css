@@ -509,8 +509,18 @@ select.form-input-underline {
   max-width: 783px;
   margin-left: auto;
   margin-right: auto;
-  margin-top:0px;
-  
+  text-box-trim: trim-both;
+text-box-edge: cap alphabetic;
+}
+.confirm-text{
+  font-size: 0.75rem;
+  line-height: 140%;
+  color: var(--brown-dark);
+  font-family: var(--font-inter);
+  max-width: 783px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:1rem;
   text-box-trim: trim-both;
 text-box-edge: cap alphabetic;
 }
@@ -536,9 +546,17 @@ form {
   width: 299px;
   height: 41px;
 }
+.confirm-text{
+   width: 299px;
+  height: 41px;
+}
 
 @media (min-width: 768px) {
   .consent-text {
+    width: 783px;
+    height: 41px;
+  }
+  .confirm-text{
     width: 783px;
     height: 41px;
   }
@@ -597,8 +615,6 @@ form {
     max-width: 700px;
   }
 }
-.main-container{
-}
 .close-button:focus {
   outline: 1 solid #692C23; /* Updated focus outline color */
   outline-offset: 2px; /* Adds space between the button and the outline */
@@ -644,6 +660,10 @@ form {
     padding-bottom:10px;
   }
   .consent-text{
+    font-size:0.625rem;
+    margin-top:30px;
+  }
+  .confirm-text{
     font-size:0.625rem;
     margin-top:30px;
   }

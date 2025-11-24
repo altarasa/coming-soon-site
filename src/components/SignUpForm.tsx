@@ -183,7 +183,7 @@ export default function SignUpForm({ isOpen, onClose }: SignUpFormProps) {
               </div>
 
               {status === "success" && (
-                <p className="consent-text text-center mt-[1rem]">
+                <p className="confirm-text text-center mt-[1rem]">
                   Thanks — we received your submission.
                 </p>
               )}
