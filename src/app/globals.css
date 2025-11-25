@@ -616,7 +616,7 @@ form {
   }
 }
 .close-button:focus {
-  outline: 1 solid #692C23; /* Updated focus outline color */
+  outline: 0; /* Updated focus outline color */
   outline-offset: 2px; /* Adds space between the button and the outline */
   border-radius: 0; /* Keeps the outline square */
 }
