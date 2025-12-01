@@ -66,7 +66,7 @@ export default function Home() {
           {/* Hero text and Coming soon in one div with gap */}
           <div className="text-content flex flex-col items-center md:pt-[20px]">
             <h1 className="hero-headline font-light leading-[100%] tracking-[-0.02em] text-[#F2EEE6] text-center">
-              An elevated essence of South Asian design.
+              An elevated essence of South Asian style.
             </h1>
             <p className="hero-subhead leading-[-0.02em] text-white/90">Coming soon</p>
           </div>
