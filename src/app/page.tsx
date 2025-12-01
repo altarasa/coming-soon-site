@@ -13,7 +13,7 @@ export default function Home() {
       {/* Mobile image - full coverage */}
       
       <Image
-        src="/AltaRasa_BG_Image_mobile.avif"
+        src="/Altrarasa01159.avif"
         alt=""  
         fill
         preload={true}
@@ -26,7 +26,7 @@ export default function Home() {
         <div 
           className="w-full h-full"
           style={{ 
-            aspectRatio: '1024/1440',
+            
             maxWidth: '100vw',
             maxHeight: '100vh',
             width: 'auto',
@@ -34,12 +34,12 @@ export default function Home() {
           }}
         >
           <Image
-            src="/AltaRasa_BG_Image_Desktop.avif"
+            src="/Altrarasa01159_Desktop.avif"
             alt=""
             fill
             preload={true}
             sizes="(min-width:1280px) 60vw, 100vw"
-            style={{objectFit:"cover"}}
+            style={{objectFit:"contain"}}
           />
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function Home() {
           />
           {/* Mobile / <md: show terracotta */}
           <Image
-            src="/logos/AR_Wordmark_Terracotta.png"
+            src="/logos/AR_Wordmark_Ivory White.png"
             alt="AltaRasa"
             width={100}
             height={19}
