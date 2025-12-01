@@ -11,7 +11,8 @@ export default function Home() {
   return (
     <main className="relative h-auto min-h-[100dvh] md:min-h-dvh w-screen m-0">
       {/* Mobile image - full coverage */}
-      
+
+      <div className="mobile-image">
       <Image
         src="/Altrarasa01159.avif"
         alt=""  
@@ -19,29 +20,22 @@ export default function Home() {
         preload={true}
         sizes="(min-width:1280px) 60vw, 100vw"
         style={{objectFit:"cover"}}
+        className="mobile-image"
       />
+      </div>
+      
       
       {/* Desktop image - constrained to 1024x1440 aspect ratio */}
-      <div className="hidden md:flex absolute inset-0 w-full h-full items-center justify-center">
-        <div 
-          className="w-full h-full"
-          style={{ 
-            
-            maxWidth: '100vw',
-            maxHeight: '100vh',
-            width: 'auto',
-            height: 'auto'
-          }}
-        >
-          <Image
-            src="/Altrarasa01159_Desktop.avif"
-            alt=""
-            fill
-            preload={true}
-            sizes="(min-width:1280px) 60vw, 100vw"
-            style={{objectFit:"contain"}}
-          />
-        </div>
+      <div className="desktop-image">
+        <Image
+          src="/Altrarasa01159_Desktop.avif"
+          alt=""
+          fill
+          preload={true}
+          sizes="(min-width:1280px) 60vw, 100vw"
+          style={{objectFit:"cover", objectPosition: "center top"}}
+          
+        />
       </div>
       
       <div className="absolute inset-0 bg-black/30 -z-10"></div>

@@ -573,6 +573,25 @@ form {
     margin-top:50px;
   }
 }
+/* Default: mobile first */
+.mobile-image {
+  display: block;
+}
+
+.desktop-image {
+  display: none;
+}
+
+/* md and up: show desktop image, hide mobile image */
+@media (min-width: 768px) {
+  .mobile-image {
+    display: none;
+  }
+
+  .desktop-image {
+    display: block;
+  }
+}
 
 .signup-footer{
     margin-top:50px;
